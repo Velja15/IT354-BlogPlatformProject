@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import styles from "./Navbar.module.css";
 
 export const Navbar = () => {
   const { user, logout } = useAuth();
@@ -11,47 +12,30 @@ export const Navbar = () => {
   };
 
   return (
-    <nav style={{ borderBottom: "2px solid var(--ink)" }} className="bg-[var(--paper)] sticky top-0 z-50">
-      <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="font-serif text-2xl font-black tracking-tight" style={{ color: "var(--ink)" }}>
-          <span style={{ color: "var(--accent)" }}>Blog</span>Platforma
+    <nav className={styles.navbar}>
+      <div className={styles.inner}>
+        <Link to="/" className={styles.logo}>
+          <span>Blog</span>Platforma
         </Link>
 
-        <div className="flex items-center gap-6">
-          <Link to="/" className="text-sm font-semibold tracking-wide uppercase hover:text-[var(--accent)] transition-colors">
-            Početna
-          </Link>
+        <div className={styles.nav}>
+          <Link to="/" className={styles.link}>Početna</Link>
 
           {!user ? (
             <>
-              <Link to="/login" className="text-sm font-semibold tracking-wide uppercase hover:text-[var(--accent)] transition-colors">
-                Prijava
-              </Link>
-              <Link to="/register" className="text-sm font-semibold tracking-wide uppercase px-4 py-2 transition-colors"
-                style={{ background: "var(--ink)", color: "var(--paper)" }}>
-                Registracija
-              </Link>
+              <Link to="/login" className={styles.link}>Prijava</Link>
+              <Link to="/register" className={styles.btnPrimary}>Registracija</Link>
             </>
           ) : (
             <>
               {user.role === "user" && (
-                <Link to="/create-post" className="text-sm font-semibold tracking-wide uppercase hover:text-[var(--accent)] transition-colors">
-                  Novi Post
-                </Link>
+                <Link to="/create-post" className={styles.link}>+ Novi post</Link>
               )}
               {user.role === "admin" && (
-                <Link to="/admin" className="text-sm font-semibold tracking-wide uppercase hover:text-[var(--accent)] transition-colors">
-                  Admin Panel
-                </Link>
+                <Link to="/admin" className={styles.link}>Admin Panel</Link>
               )}
-              <span className="text-sm" style={{ color: "var(--muted)" }}>
-                Zdravo, <strong>{user.username}</strong>
-              </span>
-              <button onClick={handleLogout}
-                className="text-sm font-semibold tracking-wide uppercase px-4 py-2 border-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-colors"
-                style={{ borderColor: "var(--ink)" }}>
-                Odjava
-              </button>
+              <span className={styles.userInfo}>Zdravo, <strong>{user.username}</strong></span>
+              <button onClick={handleLogout} className={styles.btnOutline}>Odjava</button>
             </>
           )}
         </div>

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "../utils/validationSchemas";
 import { useAuth } from "../context/AuthContext";
 import { useApi } from "../hooks/useApi";
+import styles from "./Form.module.css";
 
 const Login = () => {
   const { login } = useAuth();
@@ -30,55 +31,42 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-6">
-      <div className="w-full max-w-md">
-        <div className="mb-8 pb-6" style={{ borderBottom: "2px solid var(--ink)" }}>
-          <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "var(--accent)" }}>
-            Dobrodošli nazad
-          </p>
-          <h1 className="font-serif text-4xl font-black">Prijava</h1>
-        </div>
+    <div className={styles.page}>
+      <div className={styles.card}>
+        <p className={styles.eyebrow}>Dobrodošli nazad</p>
+        <h1 className={styles.title}>Prijava</h1>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div>
-            <label className="block text-sm font-bold uppercase tracking-wide mb-2">Email</label>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          <div className={styles.field}>
+            <label className={styles.label}>Email</label>
             <input
               {...register("email")}
               type="email"
-              className="w-full px-4 py-3 border-2 outline-none focus:border-[var(--accent)] transition-colors bg-transparent"
-              style={{ borderColor: errors.email ? "var(--accent)" : "var(--ink)", fontFamily: "inherit" }}
               placeholder="vas@email.com"
+              className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
             />
-            {errors.email && <p className="text-xs mt-1 font-semibold" style={{ color: "var(--accent)" }}>{errors.email.message}</p>}
+            {errors.email && <span className={styles.error}>{errors.email.message}</span>}
           </div>
 
-          <div>
-            <label className="block text-sm font-bold uppercase tracking-wide mb-2">Lozinka</label>
+          <div className={styles.field}>
+            <label className={styles.label}>Lozinka</label>
             <input
               {...register("password")}
               type="password"
-              className="w-full px-4 py-3 border-2 outline-none focus:border-[var(--accent)] transition-colors bg-transparent"
-              style={{ borderColor: errors.password ? "var(--accent)" : "var(--ink)", fontFamily: "inherit" }}
               placeholder="••••••••"
+              className={`${styles.input} ${errors.password ? styles.inputError : ""}`}
             />
-            {errors.password && <p className="text-xs mt-1 font-semibold" style={{ color: "var(--accent)" }}>{errors.password.message}</p>}
+            {errors.password && <span className={styles.error}>{errors.password.message}</span>}
           </div>
 
-          <button type="submit"
-            className="w-full py-3 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-80"
-            style={{ background: "var(--ink)", color: "var(--paper)" }}>
-            Prijavi se
-          </button>
+          <button type="submit" className={styles.submit}>Prijavi se</button>
         </form>
 
-        <p className="text-center mt-6 text-sm" style={{ color: "var(--muted)" }}>
-          Nemate nalog?{" "}
-          <Link to="/register" className="font-bold underline" style={{ color: "var(--ink)" }}>
-            Registrujte se
-          </Link>
+        <p className={styles.footer}>
+          Nemate nalog? <Link to="/register">Registrujte se</Link>
         </p>
 
-        <div className="mt-8 p-4 text-xs" style={{ background: "var(--border)", color: "var(--muted)" }}>
+        <div className={styles.hint}>
           <strong>Test nalozi:</strong><br />
           Admin: admin@blog.com / admin123<br />
           Korisnik: marko@email.com / marko123
