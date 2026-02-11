@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "email": "admin@blog.com",
       "password": "admin123",
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "marko",
       "email": "marko@email.com",
       "password": "marko123",
       "role": "user"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "ana",
       "email": "ana@email.com",
       "password": "ana123",
@@ -24,7 +24,7 @@
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Uvod u React Hooks",
       "content": "React Hooks su uvedeni u verziji 16.8 i omogućavaju korišćenje stanja i drugih React funkcionalnosti u funkcionalnim komponentama. Najčešće korišćeni hookovi su useState, useEffect i useContext. useState omogućava lokalnog stanja komponente, useEffect se koristi za sporedne efekte poput API poziva, a useContext za pristup globalnom stanju aplikacije bez prop drillinga.",
       "category": "Programiranje",
@@ -34,7 +34,7 @@
       "imageUrl": "https://picsum.photos/seed/react/800/400"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Tailwind CSS — zašto ga volim",
       "content": "Tailwind CSS je utility-first CSS framework koji omogućava brzo stilizovanje direktno u HTML-u. Za razliku od Bootstrap-a koji dolazi sa gotovim komponentama, Tailwind daje potpunu kontrolu nad dizajnom. Jednom kada se naučite osnovne klase, razvoj UI-a postaje dramatično brži. Posebno se ističe u kombinaciji sa React-om jer svaka komponenta ima svoje stilove izolovane.",
       "category": "Web Dizajn",
@@ -44,7 +44,7 @@
       "imageUrl": "https://picsum.photos/seed/tailwind/800/400"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Kako naučiti programiranje od nule",
       "content": "Učenje programiranja može biti izazovno, ali uz pravi pristup svako može savladati osnove. Počnite sa Python-om jer ima čistu sintaksu i veliku zajednicu. Fokusirajte se na razumevanje koncepata a ne memorisanje sintakse. Rešavajte probleme svaki dan, čak i po 30 minuta. Koristite resurse kao što su freeCodeCamp, The Odin Project i Codecademy. Najvažnije je doslednost i strpljenje.",
       "category": "Obrazovanje",
@@ -54,7 +54,7 @@
       "imageUrl": "https://picsum.photos/seed/learn/800/400"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Node.js vs Django — šta odabrati?",
       "content": "Izbor backend tehnologije zavisi od više faktora. Node.js je odličan za real-time aplikacije i JSON API-je, a deli JavaScript sa frontendom. Django dolazi sa baterijama uključenim — admin panel, ORM, autentifikacija su out-of-the-box. Za manje timove i brzi razvoj Django je često bolji izbor, dok Node.js blista u sistemima sa visokim brojem concurrent konekcija.",
       "category": "Programiranje",
@@ -62,11 +62,21 @@
       "authorName": "admin",
       "createdAt": "2025-02-05T16:00:00Z",
       "imageUrl": "https://picsum.photos/seed/backend/800/400"
+    },
+    {
+      "id": "691f",
+      "title": "Da li prosečna osoba može da istrči maraton?",
+      "category": "Ostalo",
+      "content": "Kratak odgovor je — da, može, ali uz jednu važnu napomenu: maraton ne prašta nepripremu. Prosečna osoba u dobrom zdravlju, koja se posveti trenažnom planu od 16 do 20 nedelja, sasvim je sposobna da pređe 42 kilometra — ne mora da bude brza, mora samo da bude dosledna. Najveća prepreka nije fizička, već mentalna: onaj trenutak negde oko 30. kilometra kada telo kaže \"dosta\", a ti moraš da odlučiš hoćeš li ga poslušati. Maraton nije takmičenje sa drugima — za prosečnog trkača, to je lični dogovor sa sopstvenim granicama, i upravo zbog toga je toliko vredan.",
+      "authorId": "2",
+      "authorName": "marko",
+      "createdAt": "2026-02-11T11:58:07.163Z",
+      "imageUrl": "https://picsum.photos/seed/1770811087163/800/400"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "postId": 1,
       "authorId": 3,
       "authorName": "ana",
@@ -74,7 +84,7 @@
       "createdAt": "2025-01-16T11:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "postId": 1,
       "authorId": 2,
       "authorName": "marko",
@@ -82,7 +92,7 @@
       "createdAt": "2025-01-16T13:00:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "postId": 2,
       "authorId": 3,
       "authorName": "ana",
@@ -90,12 +100,20 @@
       "createdAt": "2025-01-21T10:00:00Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "postId": 3,
       "authorId": 2,
       "authorName": "marko",
       "content": "Python je definitivno dobar izbor za početnike.",
       "createdAt": "2025-02-02T08:00:00Z"
+    },
+    {
+      "id": "c5a5",
+      "postId": null,
+      "authorId": "2",
+      "authorName": "marko",
+      "content": "Tako je!!! Slažem se",
+      "createdAt": "2026-02-11T11:58:41.870Z"
     }
   ]
 }
