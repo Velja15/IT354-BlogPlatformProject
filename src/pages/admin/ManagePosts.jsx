@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useApi } from "../../hooks/useApi";
+import styles from "./Admin.module.css";
 
 const ManagePosts = () => {
   const { get, del } = useApi();
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    get("/posts").then(setPosts);
-  }, []);
+  useEffect(() => { get("/posts").then(setPosts); }, []);
 
   const deletePost = async (id) => {
     if (!window.confirm("Obrisati post?")) return;
@@ -17,31 +16,24 @@ const ManagePosts = () => {
 
   return (
     <div>
-      <h2 className="font-serif text-2xl font-bold mb-6">Upravljanje postovima ({posts.length})</h2>
-      <table className="w-full text-sm" style={{ borderCollapse: "collapse" }}>
+      <h2 className={styles.sectionTitle}>Postovi ({posts.length})</h2>
+      <table className={styles.table}>
         <thead>
-          <tr style={{ borderBottom: "2px solid var(--ink)" }}>
-            <th className="text-left py-3 font-bold uppercase tracking-wide">Naslov</th>
-            <th className="text-left py-3 font-bold uppercase tracking-wide">Autor</th>
-            <th className="text-left py-3 font-bold uppercase tracking-wide">Kategorija</th>
-            <th className="py-3"></th>
+          <tr>
+            <th>Naslov</th>
+            <th>Autor</th>
+            <th>Kategorija</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {posts.map(p => (
-            <tr key={p.id} style={{ borderBottom: "1px solid var(--border)" }}>
-              <td className="py-3 pr-4">{p.title}</td>
-              <td className="py-3 pr-4" style={{ color: "var(--muted)" }}>{p.authorName}</td>
-              <td className="py-3 pr-4">
-                <span className="text-xs px-2 py-1 font-bold" style={{ background: "var(--border)" }}>
-                  {p.category}
-                </span>
-              </td>
-              <td className="py-3 text-right">
-                <button onClick={() => deletePost(p.id)}
-                  className="text-xs font-bold uppercase hover:text-[var(--accent)] transition-colors">
-                  Obriši
-                </button>
+            <tr key={p.id}>
+              <td style={{ color: "var(--text-primary)", fontWeight: 500 }}>{p.title}</td>
+              <td>{p.authorName}</td>
+              <td><span className={`${styles.badge} ${styles.badgeCategory}`}>{p.category}</span></td>
+              <td style={{ textAlign: "right" }}>
+                <button onClick={() => deletePost(p.id)} className={styles.deleteBtn}>Obriši</button>
               </td>
             </tr>
           ))}

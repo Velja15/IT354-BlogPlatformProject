@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { useApi } from "../../hooks/useApi";
 import { useAuth } from "../../context/AuthContext";
+import styles from "./Admin.module.css";
 
 const ManageUsers = () => {
   const { get, del } = useApi();
   const { user: currentUser } = useAuth();
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    get("/users").then(setUsers);
-  }, []);
+  useEffect(() => { get("/users").then(setUsers); }, []);
 
   const deleteUser = async (id) => {
     if (id === currentUser.id) return alert("Ne možete obrisati sebe!");
@@ -20,33 +19,29 @@ const ManageUsers = () => {
 
   return (
     <div>
-      <h2 className="font-serif text-2xl font-bold mb-6">Upravljanje korisnicima ({users.length})</h2>
-      <table className="w-full text-sm" style={{ borderCollapse: "collapse" }}>
+      <h2 className={styles.sectionTitle}>Korisnici ({users.length})</h2>
+      <table className={styles.table}>
         <thead>
-          <tr style={{ borderBottom: "2px solid var(--ink)" }}>
-            <th className="text-left py-3 font-bold uppercase tracking-wide">Korisnik</th>
-            <th className="text-left py-3 font-bold uppercase tracking-wide">Email</th>
-            <th className="text-left py-3 font-bold uppercase tracking-wide">Uloga</th>
-            <th className="py-3"></th>
+          <tr>
+            <th>Korisnik</th>
+            <th>Email</th>
+            <th>Uloga</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {users.map(u => (
-            <tr key={u.id} style={{ borderBottom: "1px solid var(--border)" }}>
-              <td className="py-3 pr-4 font-semibold">{u.username}</td>
-              <td className="py-3 pr-4" style={{ color: "var(--muted)" }}>{u.email}</td>
-              <td className="py-3 pr-4">
-                <span className="text-xs px-2 py-1 font-bold"
-                  style={{ background: u.role === "admin" ? "var(--accent)" : "var(--border)", color: u.role === "admin" ? "white" : "var(--ink)" }}>
+            <tr key={u.id}>
+              <td style={{ color: "var(--text-primary)", fontWeight: 600 }}>{u.username}</td>
+              <td>{u.email}</td>
+              <td>
+                <span className={`${styles.badge} ${u.role === "admin" ? styles.badgeAdmin : styles.badgeUser}`}>
                   {u.role}
                 </span>
               </td>
-              <td className="py-3 text-right">
+              <td style={{ textAlign: "right" }}>
                 {u.id !== currentUser.id && (
-                  <button onClick={() => deleteUser(u.id)}
-                    className="text-xs font-bold uppercase hover:text-[var(--accent)] transition-colors">
-                    Obriši
-                  </button>
+                  <button onClick={() => deleteUser(u.id)} className={styles.deleteBtn}>Obriši</button>
                 )}
               </td>
             </tr>

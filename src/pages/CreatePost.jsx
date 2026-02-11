@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { postSchema } from "../utils/validationSchemas";
 import { useApi } from "../hooks/useApi";
 import { useAuth } from "../context/AuthContext";
+import styles from "./CreatePost.module.css";
 
 const CATEGORIES = ["Programiranje", "Web Dizajn", "Obrazovanje", "Tehnologija", "Ostalo"];
 
@@ -28,56 +29,44 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-12">
-      <div className="mb-8 pb-6" style={{ borderBottom: "2px solid var(--ink)" }}>
-        <p className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "var(--accent)" }}>
-          Novi post
-        </p>
-        <h1 className="font-serif text-4xl font-black">Napiši post</h1>
-      </div>
+    <div className={styles.page}>
+      <p className={styles.eyebrow}>Novi post</p>
+      <h1 className={styles.title}>Napiši post</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div>
-          <label className="block text-sm font-bold uppercase tracking-wide mb-2">Naslov</label>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+        <div className={styles.field}>
+          <label className={styles.label}>Naslov</label>
           <input
             {...register("title")}
-            className="w-full px-4 py-3 border-2 outline-none focus:border-[var(--accent)] transition-colors bg-transparent"
-            style={{ borderColor: errors.title ? "var(--accent)" : "var(--ink)", fontFamily: "inherit" }}
+            className={`${styles.input} ${errors.title ? styles.inputError : ""}`}
             placeholder="Naslov vašeg posta..."
           />
-          {errors.title && <p className="text-xs mt-1 font-semibold" style={{ color: "var(--accent)" }}>{errors.title.message}</p>}
+          {errors.title && <span className={styles.error}>{errors.title.message}</span>}
         </div>
 
-        <div>
-          <label className="block text-sm font-bold uppercase tracking-wide mb-2">Kategorija</label>
+        <div className={styles.field}>
+          <label className={styles.label}>Kategorija</label>
           <select
             {...register("category")}
-            className="w-full px-4 py-3 border-2 outline-none cursor-pointer bg-transparent"
-            style={{ borderColor: errors.category ? "var(--accent)" : "var(--ink)", fontFamily: "inherit" }}
+            className={`${styles.select} ${errors.category ? styles.inputError : ""}`}
           >
             <option value="">-- Odaberite kategoriju --</option>
             {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
           </select>
-          {errors.category && <p className="text-xs mt-1 font-semibold" style={{ color: "var(--accent)" }}>{errors.category.message}</p>}
+          {errors.category && <span className={styles.error}>{errors.category.message}</span>}
         </div>
 
-        <div>
-          <label className="block text-sm font-bold uppercase tracking-wide mb-2">Sadržaj</label>
+        <div className={styles.field}>
+          <label className={styles.label}>Sadržaj</label>
           <textarea
             {...register("content")}
-            rows={8}
-            className="w-full px-4 py-3 border-2 outline-none focus:border-[var(--accent)] transition-colors bg-transparent resize-none"
-            style={{ borderColor: errors.content ? "var(--accent)" : "var(--ink)", fontFamily: "inherit" }}
+            className={`${styles.textarea} ${errors.content ? styles.inputError : ""}`}
             placeholder="Napišite sadržaj vašeg posta..."
           />
-          {errors.content && <p className="text-xs mt-1 font-semibold" style={{ color: "var(--accent)" }}>{errors.content.message}</p>}
+          {errors.content && <span className={styles.error}>{errors.content.message}</span>}
         </div>
 
-        <button type="submit"
-          className="w-full py-3 font-bold text-sm uppercase tracking-widest transition-opacity hover:opacity-80"
-          style={{ background: "var(--ink)", color: "var(--paper)" }}>
-          Objavi post
-        </button>
+        <button type="submit" className={styles.submit}>Objavi post</button>
       </form>
     </div>
   );
