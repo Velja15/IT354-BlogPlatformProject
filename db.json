@@ -20,6 +20,41 @@
       "email": "ana@email.com",
       "password": "ana123",
       "role": "user"
+    },
+    {
+      "id": "4",
+      "username": "stefan",
+      "email": "stefan@email.com",
+      "password": "stefan123",
+      "role": "user"
+    },
+    {
+      "id": "5",
+      "username": "jovana",
+      "email": "jovana@email.com",
+      "password": "jovana123",
+      "role": "user"
+    },
+    {
+      "id": "6",
+      "username": "nikola",
+      "email": "nikola@email.com",
+      "password": "nikola123",
+      "role": "user"
+    },
+    {
+      "id": "7",
+      "username": "milica",
+      "email": "milica@email.com",
+      "password": "milica123",
+      "role": "user"
+    },
+    {
+      "id": "1a9e",
+      "username": "Veljko",
+      "email": "veljko@gmail.com",
+      "password": "veljko123",
+      "role": "user"
     }
   ],
   "posts": [
@@ -64,14 +99,104 @@
       "imageUrl": "https://picsum.photos/seed/backend/800/400"
     },
     {
-      "id": "691f",
-      "title": "Da li prosečna osoba može da istrči maraton?",
-      "category": "Ostalo",
-      "content": "Kratak odgovor je — da, može, ali uz jednu važnu napomenu: maraton ne prašta nepripremu. Prosečna osoba u dobrom zdravlju, koja se posveti trenažnom planu od 16 do 20 nedelja, sasvim je sposobna da pređe 42 kilometra — ne mora da bude brza, mora samo da bude dosledna. Najveća prepreka nije fizička, već mentalna: onaj trenutak negde oko 30. kilometra kada telo kaže \"dosta\", a ti moraš da odlučiš hoćeš li ga poslušati. Maraton nije takmičenje sa drugima — za prosečnog trkača, to je lični dogovor sa sopstvenim granicama, i upravo zbog toga je toliko vredan.",
-      "authorId": "2",
-      "authorName": "marko",
-      "createdAt": "2026-02-11T11:58:07.163Z",
-      "imageUrl": "https://picsum.photos/seed/1770811087163/800/400"
+      "id": "5",
+      "title": "Git workflow za timski rad",
+      "content": "Uspešan timski razvoj zahteva jasne Git konvencije. Preporučujem Git Flow pristup: main grana za produkciju, develop za razvoj, feature grane za nove funkcionalnosti. Svaka feature grana se kreira od develop-a, a po završetku se merge-uje nazad. Commiti treba da budu mali i atomični, sa jasnim porukama u formatu 'feat: dodaj login formu' ili 'fix: ispravi validaciju emaila'. Pull requestovi omogućavaju code review pre merga.",
+      "category": "Programiranje",
+      "authorId": 4,
+      "authorName": "stefan",
+      "createdAt": "2025-02-08T11:20:00Z",
+      "imageUrl": "https://picsum.photos/seed/git/800/400"
+    },
+    {
+      "id": "6",
+      "title": "Responsive dizajn — osnove",
+      "content": "Responsive dizajn više nije opcija, već standard. Ključni koncept je mobile-first pristup — dizajnirajte prvo za male ekrane, pa dodajte media queries za veće. Koristite fleksibilne jedinice kao što su rem, em i procenti umesto fiksnih piksela. CSS Grid i Flexbox omogućavaju kreiranje složenih layouta bez float-ova. Testirajte dizajn na realnim uređajima, ne samo u DevTools-ima.",
+      "category": "Web Dizajn",
+      "authorId": 5,
+      "authorName": "jovana",
+      "createdAt": "2025-02-09T08:45:00Z",
+      "imageUrl": "https://picsum.photos/seed/responsive/800/400"
+    },
+    {
+      "id": "7",
+      "title": "JavaScript async/await objašnjeno",
+      "content": "Async/await je sintaksni šećer nad Promises koji kod čini čitljivijim. Funkcija označena sa async automatski vraća Promise. Ključna reč await pauzira izvršavanje dok se Promise ne razreši. Greške se hvata sa try/catch blokovima. Ovo eliminiše callback hell i čini asinhroni kod sličnim sinhronom. Međutim, pažljivo sa sekvencijalnim await-ovima — mogu usporiti izvršavanje ako nema zavisnosti između poziva.",
+      "category": "Programiranje",
+      "authorId": 6,
+      "authorName": "nikola",
+      "createdAt": "2025-02-10T13:10:00Z",
+      "imageUrl": "https://picsum.photos/seed/async/800/400"
+    },
+    {
+      "id": "8",
+      "title": "Zašto učenje nikada ne prestaje u IT-ju",
+      "content": "Tehnologija se menja brže nego što iko može da prati. Framework koji je danas popularan sutra može biti zaboravljen. Ali to nije razlog za strah, već za uzbuđenje. Ključ je naučiti osnove dobro — HTTP, baze podataka, algoritmi, strukture podataka. Ti koncepti se ne menjaju. Novi framework-ovi dolaze i odlaze, ali principi ostaju isti. Fokusirajte se na razumevanje 'zašto' a ne samo 'kako', i prilagođavanje novim tehnologijama biće prirodno.",
+      "category": "Obrazovanje",
+      "authorId": 7,
+      "authorName": "milica",
+      "createdAt": "2025-02-11T09:30:00Z",
+      "imageUrl": "https://picsum.photos/seed/learning/800/400"
+    },
+    {
+      "id": "9",
+      "title": "CSS animacije vs JavaScript animacije",
+      "content": "CSS animacije su performantnije jer browser može da ih optimizuje i pokrene na GPU-u. Idealne su za jednostavne tranzicije i keyframe animacije. JavaScript daje više kontrole i omogućava kompleksne scenarije sa dinamičkim vrednostima. Za najbolje performanse, animirajte samo transform i opacity svojstva. Biblioteke poput GSAP nude moćan API za složene animacije. Pravilo: koristite CSS gde možete, JavaScript gde morate.",
+      "category": "Web Dizajn",
+      "authorId": 4,
+      "authorName": "stefan",
+      "createdAt": "2025-02-11T14:15:00Z",
+      "imageUrl": "https://picsum.photos/seed/animation/800/400"
+    },
+    {
+      "id": "10",
+      "title": "REST API najbolje prakse",
+      "content": "Dobar REST API je intuitivan i konzistentan. Koristite HTTP glagole pravilno: GET za čitanje, POST za kreiranje, PUT za ažuriranje, DELETE za brisanje. Nazivi resursa treba da budu imenice u množini. Verzioniranje API-ja je obavezno. Vraćajte odgovarajuće HTTP status kodove: 200 za uspeh, 400 za client grešku, 500 za server grešku. Dokumentacija nije opcija. Rate limiting štiti od abuse-a. HTTPS svuda, nikada plain HTTP.",
+      "category": "Programiranje",
+      "authorId": 5,
+      "authorName": "jovana",
+      "createdAt": "2025-02-12T07:50:00Z",
+      "imageUrl": "https://picsum.photos/seed/api/800/400"
+    },
+    {
+      "id": "11",
+      "title": "TypeScript za React projekte",
+      "content": "TypeScript dodaje tipove JavaScript-u i drastično smanjuje broj bagova. U React-u, definišite tipove za props, state i event handler-e. IDE dobija moć autocomplete-a i može da vas upozori na greške pre pokretanja koda. Učenje krive može biti strmo na početku, ali se isplati. Počnite sa osnovnim tipovima, pa pređite na generike. Ne pretjerujte sa any — on negira svu vrednost TypeScript-a. Typesafety je investicija koja štedi vreme u budućnosti.",
+      "category": "Programiranje",
+      "authorId": 6,
+      "authorName": "nikola",
+      "createdAt": "2025-02-12T10:25:00Z",
+      "imageUrl": "https://picsum.photos/seed/typescript/800/400"
+    },
+    {
+      "id": "12",
+      "title": "Figma za programere — kratki vodič",
+      "content": "Programeri ne moraju biti dizajneri, ali razumevanje Figme olakšava saradnju. Figma je browserski alat za dizajn interfejsa. Naučite da koristite Inspect panel za dobijanje CSS vrednosti. Auto Layout odgovara Flexbox-u u CSS-u. Components su kao React komponente. Exportujte slike u odgovarajućim formatima i rezolucijama. Plugins kao što su 'CSS Peek' direktno generišu kod. Komunikacija sa dizajnerima postaje mnogo lakša kada pričate isti jezik.",
+      "category": "Web Dizajn",
+      "authorId": 7,
+      "authorName": "milica",
+      "createdAt": "2025-02-12T12:40:00Z",
+      "imageUrl": "https://picsum.photos/seed/figma/800/400"
+    },
+    {
+      "id": "13",
+      "title": "Docker za početnike",
+      "content": "Docker omogućava pakovanje aplikacije sa svim zavisnostima u kontejner koji radi identično na svakoj mašini. Dockerfile definiše kako se gradi image. Docker Compose omogućava upravljanje višestruke kontejnerima. Kontejneri su lightweight i brže se pokreću od virtuelnih mašina. Idealno za development environments, CI/CD pipeline, i mikroservisne arhitekture. Naučite osnove: image, container, volume, network. Docker Hub je repozitorijum za deljenje image-a.",
+      "category": "Tehnologija",
+      "authorId": 4,
+      "authorName": "stefan",
+      "createdAt": "2025-02-13T08:30:00Z",
+      "imageUrl": "https://picsum.photos/seed/docker/800/400"
+    },
+    {
+      "id": "14",
+      "title": "Soft skills za developere",
+      "content": "Tehnička sposobnost nije dovoljna. Komunikacija je ključna — umejte da objasnite tehnički problem netehničkoj osobi. Timski rad zahteva empatiju i kompromis. Time management i procena vremena su veštine koje se uče. Code review je prilika za učenje, ne za ego. Prihvatanje kritike konstruktivno vas čini boljim. Postavljanje pitanja nije znak slabosti. Dokumentujte svoj kod za budućeg sebe. Saradnja uvek pobedi solo rad.",
+      "category": "Obrazovanje",
+      "authorId": 3,
+      "authorName": "ana",
+      "createdAt": "2025-02-13T11:15:00Z",
+      "imageUrl": "https://picsum.photos/seed/softskills/800/400"
     }
   ],
   "comments": [
@@ -86,26 +211,258 @@
     {
       "id": "2",
       "postId": 1,
-      "authorId": 2,
-      "authorName": "marko",
-      "content": "Hvala! useReducer je takođe jako koristan kada stanje postane kompleksnije.",
+      "authorId": 4,
+      "authorName": "stefan",
+      "content": "useReducer je takođe jako koristan kada stanje postane kompleksnije.",
       "createdAt": "2025-01-16T13:00:00Z"
     },
     {
       "id": "3",
+      "postId": 1,
+      "authorId": 6,
+      "authorName": "nikola",
+      "content": "Nisam koristio Hooks dok nisam morao, sada ne mogu bez njih. Custom hooks su game changer.",
+      "createdAt": "2025-01-17T09:30:00Z"
+    },
+    {
+      "id": "4",
       "postId": 2,
-      "authorId": 3,
-      "authorName": "ana",
+      "authorId": 5,
+      "authorName": "jovana",
       "content": "Slažem se, Tailwind je promenio moj workflow potpuno!",
       "createdAt": "2025-01-21T10:00:00Z"
     },
     {
-      "id": "4",
+      "id": "5",
+      "postId": 2,
+      "authorId": 7,
+      "autorName": "milica",
+      "content": "Ja još uvek preferiram CSS module. Tailwind mi deluje kao inline stilovi na steroidima.",
+      "createdAt": "2025-01-21T14:20:00Z"
+    },
+    {
+      "id": "6",
       "postId": 3,
       "authorId": 2,
       "authorName": "marko",
       "content": "Python je definitivno dobar izbor za početnike.",
       "createdAt": "2025-02-02T08:00:00Z"
+    },
+    {
+      "id": "7",
+      "postId": 3,
+      "authorId": 4,
+      "authorName": "stefan",
+      "content": "Dodao bih još da je JavaScript takođe odličan za početnike jer možete odmah praviti web aplikacije.",
+      "createdAt": "2025-02-02T10:45:00Z"
+    },
+    {
+      "id": "8",
+      "postId": 4,
+      "authorId": 3,
+      "authorName": "ana",
+      "content": "Koristim Node.js i prezadovoljna sam. JavaScript na obe strane je ogroman plus.",
+      "createdAt": "2025-02-06T09:20:00Z"
+    },
+    {
+      "id": "9",
+      "postId": 4,
+      "authorId": 6,
+      "authorName": "nikola",
+      "content": "Django admin panel je fantastičan za brzi razvoj. Štedi toliko vremena.",
+      "createdAt": "2025-02-06T14:35:00Z"
+    },
+    {
+      "id": "10",
+      "postId": 5,
+      "authorId": 1,
+      "authorName": "admin",
+      "content": "Git Flow je odličan za veće timove. Za male projekte GitHub Flow je dovoljno jednostavan.",
+      "createdAt": "2025-02-08T15:10:00Z"
+    },
+    {
+      "id": "11",
+      "postId": 5,
+      "authorId": 7,
+      "authorName": "milica",
+      "content": "Atomic commiti su game changer. Mnogo lakše se prati istorija projekta.",
+      "createdAt": "2025-02-08T17:45:00Z"
+    },
+    {
+      "id": "12",
+      "postId": 5,
+      "authorId": 2,
+      "authorName": "marko",
+      "content": "Conventional commits su takođe super za automatizaciju changelog-a.",
+      "createdAt": "2025-02-09T08:00:00Z"
+    },
+    {
+      "id": "13",
+      "postId": 6,
+      "authorId": 3,
+      "authorName": "ana",
+      "content": "Mobile-first pristup je initially kontraintuitivan ali potpuno ima smisla.",
+      "createdAt": "2025-02-09T10:20:00Z"
+    },
+    {
+      "id": "14",
+      "postId": 6,
+      "authorId": 4,
+      "authorName": "stefan",
+      "content": "CSS Grid je revolucionirao moj način razmišljanja o layoutu. Toliko je moćan.",
+      "createdAt": "2025-02-09T12:00:00Z"
+    },
+    {
+      "id": "15",
+      "postId": 7,
+      "authorId": 1,
+      "authorName": "admin",
+      "content": "Async/await je učinio moj kod toliko čitljivijim. Nikad se ne vraćam na .then() lance.",
+      "createdAt": "2025-02-10T16:30:00Z"
+    },
+    {
+      "id": "16",
+      "postId": 7,
+      "authorId": 5,
+      "authorName": "jovana",
+      "content": "Dobar savet za Promise.all() kada pozivi nisu zavisni. Može značajno ubrzati kod.",
+      "createdAt": "2025-02-10T18:15:00Z"
+    },
+    {
+      "id": "17",
+      "postId": 7,
+      "authorId": 2,
+      "authorName": "marko",
+      "content": "Error handling sa try/catch u async funkcijama je mnogo prirodniji nego .catch().",
+      "createdAt": "2025-02-11T07:40:00Z"
+    },
+    {
+      "id": "18",
+      "postId": 8,
+      "authorId": 2,
+      "authorName": "marko",
+      "content": "Ovo je tačno. Osnove su ključne. Framework će se promeniti ali HTTP neće.",
+      "createdAt": "2025-02-11T11:40:00Z"
+    },
+    {
+      "id": "19",
+      "postId": 8,
+      "authorId": 6,
+      "authorName": "nikola",
+      "content": "Imposter sindrom je stvaran u ovoj industriji. Samo napred, niko ne zna sve.",
+      "createdAt": "2025-02-11T13:25:00Z"
+    },
+    {
+      "id": "20",
+      "postId": 9,
+      "authorId": 3,
+      "authorName": "ana",
+      "content": "GSAP je neverovatna biblioteka. Performanse su odlične čak i za kompleksne animacije.",
+      "createdAt": "2025-02-11T16:50:00Z"
+    },
+    {
+      "id": "21",
+      "postId": 9,
+      "authorId": 7,
+      "authorName": "milica",
+      "content": "Transform i opacity su jedina svojstva koja treba animirati. Sve ostalo je janky.",
+      "createdAt": "2025-02-11T18:10:00Z"
+    },
+    {
+      "id": "22",
+      "postId": 10,
+      "authorId": 2,
+      "authorName": "marko",
+      "content": "Dokumentacija je često zanemarena ali je toliko važna. Swagger/OpenAPI je super.",
+      "createdAt": "2025-02-12T09:15:00Z"
+    },
+    {
+      "id": "23",
+      "postId": 10,
+      "authorId": 4,
+      "authorName": "stefan",
+      "content": "Rate limiting je spasao moj API od abuse-a više puta. Definitivno implementirajte.",
+      "createdAt": "2025-02-12T10:40:00Z"
+    },
+    {
+      "id": "24",
+      "postId": 11,
+      "authorId": 1,
+      "authorName": "admin",
+      "content": "TypeScript mi je spasio nebrojeno sati debugovanja. Bagovi se hvataju pri kompajliranju.",
+      "createdAt": "2025-02-12T11:55:00Z"
+    },
+    {
+      "id": "25",
+      "postId": 11,
+      "authorId": 5,
+      "authorName": "jovana",
+      "content": "Generici u TypeScript-u su initially zbunjujući ali neverovatno moćni.",
+      "createdAt": "2025-02-12T13:20:00Z"
+    },
+    {
+      "id": "26",
+      "postId": 12,
+      "authorId": 3,
+      "authorName": "ana",
+      "content": "Auto Layout u Figmi je bukvalno Flexbox. Kada to shvatite, sve ima smisla.",
+      "createdAt": "2025-02-12T14:05:00Z"
+    },
+    {
+      "id": "27",
+      "postId": 12,
+      "authorId": 6,
+      "authorName": "nikola",
+      "content": "Figma plugins štede toliko vremena. CSS Peek i HTML to Figma su must-have.",
+      "createdAt": "2025-02-12T15:30:00Z"
+    },
+    {
+      "id": "28",
+      "postId": 13,
+      "authorId": 2,
+      "authorName": "marko",
+      "content": "Docker je promenio način kako radim. Development environment setup je sada trivijalan.",
+      "createdAt": "2025-02-13T09:45:00Z"
+    },
+    {
+      "id": "29",
+      "postId": 13,
+      "authorId": 7,
+      "authorName": "milica",
+      "content": "Docker Compose je esencijalan kada imate bazu, redis, backend i frontend u istom projektu.",
+      "createdAt": "2025-02-13T11:20:00Z"
+    },
+    {
+      "id": "30",
+      "postId": 14,
+      "authorId": 4,
+      "authorName": "stefan",
+      "content": "Potpuno se slažem. Komunikacija je često važnija od tehničkog znanja.",
+      "createdAt": "2025-02-13T12:30:00Z"
+    },
+    {
+      "id": "31",
+      "postId": 14,
+      "authorId": 1,
+      "authorName": "admin",
+      "content": "Code review kultura je ključna za rast junior developera. Budite konstruktivni.",
+      "createdAt": "2025-02-13T14:00:00Z"
+    },
+    {
+      "id": "32",
+      "postId": 15,
+      "authorId": 6,
+      "authorName": "nikola",
+      "content": "Koristimo MongoDB za log sistem, PostgreSQL za core biznis logiku. Best of both worlds.",
+      "createdAt": "2025-02-13T16:10:00Z"
+    },
+    {
+      "id": "33",
+      "postId": 15,
+      "authorId": 3,
+      "authorName": "ana",
+      "content": "Indexes su kritični u obe baze. Bez njih performanse padaju drastično.",
+      "createdAt": "2025-02-13T17:40:00Z"
     }
   ]
 }
